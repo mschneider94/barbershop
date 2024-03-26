@@ -28,7 +28,6 @@
           <th>PLZ</th>
           <th>Ort</th>
           <th>Telefon</th>
-          <th>Geburtstag</th>
         </tr>
       </thead>
       <tbody>
@@ -44,7 +43,6 @@
               echo "          <td>" . $dataset["PostalCode"] . "</td>\n";
               echo "          <td>" . $dataset["City"] . "</td>\n";
               echo "          <td>" . $dataset["Phone"] . "</td>\n";
-              echo "          <td>" . $dataset["Birthday"] . "</td>\n";
             echo "        </tr>\n";
             $DatasetCounter++;
           }

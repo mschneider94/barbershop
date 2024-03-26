@@ -18,7 +18,6 @@
     $PostalCode = null;
     $City = null;
     $Phone = null;
-    $Birthday = null;
     $Haircut = null;
     $Color = null;
     $Perm = null;
@@ -46,9 +45,6 @@
       if (isset($_POST["Phone"])) {
         $Phone = mysqli_real_escape_string($link, $_POST["Phone"]);
       }
-      if (isset($_POST["Birthday"])) {
-        $Birthday = mysqli_real_escape_string($link, $_POST["Birthday"]);
-      }
       if (isset($_POST["Haircut"])) {
         $Haircut = mysqli_real_escape_string($link, $_POST["Haircut"]);
       }
@@ -64,7 +60,7 @@
 
       if ($id) {
         // UPDATE
-        $sql = "UPDATE customer SET Surname = '" . $Surname . "', GivenName = '" . $GivenName . "', Address = '" . $Address . "', PostalCode = '" . $PostalCode . "', City = '" . $City . "', Phone = '" . $Phone . "', Birthday = '" . $Birthday . "', Haircut = '" . $Haircut . "', Color = '" . $Color . "', Perm = '" . $Perm . "', Miscellaneous = '" . $Miscellaneous . "'";
+        $sql = "UPDATE customer SET Surname = '" . $Surname . "', GivenName = '" . $GivenName . "', Address = '" . $Address . "', PostalCode = '" . $PostalCode . "', City = '" . $City . "', Phone = '" . $Phone . "', Haircut = '" . $Haircut . "', Color = '" . $Color . "', Perm = '" . $Perm . "', Miscellaneous = '" . $Miscellaneous . "'";
         $sql = $sql . "WHERE ID = " . $id . ";";
 
         // Preventing ReInsertion (may be caused by Page-Reload)
@@ -85,8 +81,8 @@
         }
       } else {
         // INSERT
-        $sql = "INSERT INTO customer (Surname, GivenName, Address, PostalCode, City, Phone, Birthday, Haircut, Color, Perm, Miscellaneous) ";
-        $sql = $sql . "Values ('" . $Surname . "', '" . $GivenName . "', '" . $Address . "', '" . $PostalCode . "', '" . $City . "', '" . $Phone . "', '" . $Birthday . "', '" . $Haircut . "', '" . $Color . "', '" . $Perm . "', '" . $Miscellaneous . "');";
+        $sql = "INSERT INTO customer (Surname, GivenName, Address, PostalCode, City, Phone, Haircut, Color, Perm, Miscellaneous) ";
+        $sql = $sql . "Values ('" . $Surname . "', '" . $GivenName . "', '" . $Address . "', '" . $PostalCode . "', '" . $City . "', '" . $Phone . "', '" . $Haircut . "', '" . $Color . "', '" . $Perm . "', '" . $Miscellaneous . "');";
 
         // Preventing ReInsertion (may be caused by Page-Reload)
         // (Create a hash of the SQL-Statement, save it as a session cookie, and compare hashes every session)
@@ -125,7 +121,6 @@
       $PostalCode = $dataset["PostalCode"];
       $City = $dataset["City"];
       $Phone = $dataset["Phone"];
-      $Birthday = $dataset["Birthday"];
       $Haircut = $dataset["Haircut"];
       $Color = $dataset["Color"];
       $Perm = $dataset["Perm"];
@@ -205,20 +200,11 @@
             </div>
           </div>
           <div class='mask-wrapper clearfix'>
-            <div class='mask-key'>Geburtstag:&nbsp;</div>
-            <div class='mask-value'>
-              <?php
-                echo "<!-- PHP Mask: Birthday -->\n";
-                echo "                <input type='date' name='Birthday' value='" . $Birthday . "'>\n";
-              ?>
-            </div>
-          </div>
-          <div class='mask-wrapper clearfix'>
             <div class='mask-key'>Haarschnitt:&nbsp;</div>
             <div class='mask-value'>
               <?php
                 echo "<!-- PHP Mask: Haircut -->\n";
-                echo "                <textarea rows='20' style='width: 100%; background-color: plum;' name='Haircut'>" . $Haircut . "</textarea>\n";
+                echo "                <textarea rows='22' style='width: 100%; background-color: plum;' name='Haircut'>" . $Haircut . "</textarea>\n";
               ?>
             </div>
           </div>
