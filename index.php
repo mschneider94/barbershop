@@ -8,9 +8,6 @@
   </head>
   <?php
     echo "<!-- PHP Construct -->\n";
-
-    // StartMarke für Laufzeitmessung
-    $ExecutionStartTime = microtime(true);
     
     include("connect.inc.php");
 
@@ -49,11 +46,6 @@
         ?>
       </tbody>
     </table>
-    <?php
-      // Laufzeitmessung
-      $ExecutionTime = microtime(true) - $ExecutionStartTime;
-      echo "  <p align='right'>" . $DatasetCounter . " Einträge in " . $ExecutionTime . " Sek.</p>\n";
-    ?>
   </body>
   <?php
     echo "<!-- PHP Destruct>\n";
