@@ -56,19 +56,19 @@ div.column {
 
 
 div.mask-wrapper {
-	width: 650px;
+	width: 490px;
 	padding: 1px;
 	margin-top: 0 auto;
 	margin-bottom: 0.1em;
 }
 
 div.mask-key {
-	width: 150px;
+	width: 90px;
 	float: left;
 }
 
 div.mask-value {
-	width: 500px;
+	width: 400px;
 	float: left;
 }
 
