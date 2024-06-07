@@ -5,6 +5,9 @@
     
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.ba-throttle-debounce.js"></script>
   </head>
   <?php
     echo "<!-- PHP Construct -->\n";
@@ -15,7 +18,10 @@
     $data = mysqli_query ($link, $sql) or die();
   ?>
   <body>
-    <table>
+    <p>
+      <input id="Searchbox" type="text" placeholder="Zum Suchen einfach tippen...">
+    </p>
+    <table id="tableResult">
       <thead>
         <tr>
           <th><a style='color: white;' href='edit.php'>NEU</a></th>
@@ -46,6 +52,16 @@
         ?>
       </tbody>
     </table>
+    <script>
+      $(document).ready(function(){
+        $("#Searchbox").on("keyup", $.debounce( 500, function() {
+          var value = $(this).val().toLowerCase();
+          $("#tableResult tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        }));
+      });
+    </script>
   </body>
   <?php
     echo "<!-- PHP Destruct>\n";

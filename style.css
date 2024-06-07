@@ -80,3 +80,13 @@ div.mask-value {
   overflow: hidden;
   visibility: hidden;
 }
+
+
+
+#Searchbox {
+  width: 476px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 15px;
+  transition: width 0.2s;
+}
